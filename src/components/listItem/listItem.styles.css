@@ -1,0 +1,17 @@
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    font-size: calc(8px + 1vmin);
+
+}
+
+.list-title-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon {
+    width: 25px;
+}

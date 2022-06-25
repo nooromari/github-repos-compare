@@ -1,0 +1,40 @@
+.container{
+    background-color: #484b52ab ;
+    border-radius: 30px;
+    font-size: calc(10px + 1vmin);
+    padding: 20px;
+    width: 270px;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #a9aaac;
+    align-items: center;
+    gap: 10px;
+}
+
+a {
+    color: #80d8ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #80d9ffd0;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+}
+
+.repo-name {
+    font-size: calc(10px + 1vmin);
+
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

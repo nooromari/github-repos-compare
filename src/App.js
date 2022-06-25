@@ -9,13 +9,13 @@ import { GITHUB_API_URL } from "./utils/constants";
 function App() {
   const [searchedRepos, setSearchedRepos] = useState(null);
   const [savedRepos, setSavedRepos] = useState(null);
-  const [searchedName, setSearchedName] = useState("");
+  const [searchedName, setSearchedName] = useState(null);
 
   useEffect(() => {
     if (searchedName) {
       axios
         .get(
-          `${GITHUB_API_URL}/search/repositories?q=${searchedName}&page=1&per_page=5`
+          `${GITHUB_API_URL}/search/repositories?q=${searchedName}&page=1&per_page=4`
         )
         .then((res) => {
           const items = res.data.items.map(
@@ -29,7 +29,7 @@ function App() {
               stargazers_count,
               owner: { avatar_url, html_url },
               license,
-              id
+              id,
             }) => ({
               full_name,
               created_at,
@@ -41,7 +41,7 @@ function App() {
               avatar_url,
               html_url,
               license_type: license?.spdx_id,
-              id
+              id,
             })
           );
 
@@ -56,23 +56,50 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={Logo} alt="logo" width={"60px"} />
+        <img className="logo" src={Logo} alt="logo" />
         <h1>Github Repos Compare</h1>
       </header>
+      {/* <ErrorBoundary> */}
       <main>
         <Search setSearchedName={setSearchedName} />
-        <section id="search-section" className="">
-          {searchedRepos?.map(({id, ...repo}) => (
-            <RepoCard key={id} repoData={repo} setSavedRepos={setSavedRepos} search />
-          ))}
+        <h2 className="section-title">Search Result</h2>
+        <section id="search-section" className="repos-section">
+          {searchedRepos ? (
+            searchedRepos?.map(({ id, ...repo }) => (
+              <RepoCard
+                key={id}
+                repoData={repo}
+                setSavedRepos={setSavedRepos}
+                search
+              />
+            ))
+          ) : (
+            <div className="empty">
+              <p>No Search Found</p>
+            </div>
+          )}
         </section>
-        <section id="compare-section" className="">
-          {savedRepos?.map(({id, ...repo}) => (
-            <RepoCard key={"save"+id} repoData={repo} setSavedRepos={setSavedRepos} />
-          ))}
+        <h2 className="section-title">Saved Repos to Compare</h2>
+        <section id="compare-section" className="repos-section">
+          {savedRepos ? (
+            savedRepos?.map(({ id, ...repo }) => (
+              <RepoCard
+                key={"save" + id}
+                repoData={repo}
+                setSavedRepos={setSavedRepos}
+              />
+            ))
+          ) : (
+            <div className="empty">
+              <p>No Repos Saved</p>
+            </div>
+          )}
         </section>
       </main>
-      <footer>All rights received &copy; 2022 Noor Al-Omari</footer>
+      {/* </ErrorBoundary> */}
+      <footer className="footer">
+        All rights received &copy; 2022 Noor Al-Omari
+      </footer>
     </div>
   );
 }

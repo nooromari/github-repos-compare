@@ -16,6 +16,7 @@ const Search = ({ setSearchedName }) => {
         type={"search"}
         placeholder="search"
         name="search"
+        className="search-input"
         onChange={(e) => {
           debounce(e.target.value, setSearchedName, 2000);
         }}

@@ -1,4 +1,11 @@
 import ListItem from "../listItem/listItem.component";
+import moment from "moment";
+import { AiOutlineBranches, AiOutlinePlus, AiFillStar } from "react-icons/ai";
+import { GoIssueOpened } from "react-icons/go";
+import { MdDateRange } from "react-icons/md";
+import { FaLanguage } from "react-icons/fa";
+import { TiStarburst } from "react-icons/ti";
+
 import "./repoCard.styles.css";
 
 const RepoCard = ({
@@ -16,54 +23,65 @@ const RepoCard = ({
   },
   setSavedRepos,
 }) => {
-
-    const listData = [
-        {
-            title: "Stars",
-            value: stargazers_count,
-            icon:""
-        },
-        {
-            title: "Forks",
-            value: forks_count,
-            icon:""
-        },
-        {
-            title: "Open Issues",
-            value: open_issues_count,
-            icon:""
-        },
-        {
-            title: "Age",
-            value: created_at,
-            icon:""
-        },
-        {
-            title: "Last Commit",
-            value: updated_at,
-            icon:""
-        },
-        {
-            title: "License",
-            value: license_type,
-            icon:""
-        },
-        {
-            title: "Language",
-            value: language,
-            icon:""
-        },
-    ]
+  const listData = [
+    {
+      title: "Stars",
+      value: stargazers_count,
+      icon: AiFillStar,
+    },
+    {
+      title: "Forks",
+      value: forks_count,
+      icon: AiOutlineBranches,
+    },
+    {
+      title: "Open Issues",
+      value: open_issues_count,
+      icon: GoIssueOpened,
+    },
+    {
+      title: "Age",
+      //calculate the repo age by years
+      value: `${moment().diff(moment(created_at), "years")} years ago`,
+      icon: MdDateRange,
+    },
+    {
+      title: "Last Commit",
+      //calculate the last commit time by hours
+      value: `${moment().diff(moment(updated_at), "hours")} hours ago`,
+      icon: AiOutlinePlus,
+    },
+    {
+      title: "License",
+      value: license_type,
+      icon: TiStarburst,
+    },
+    {
+      title: "Language",
+      value: language,
+      icon: FaLanguage,
+    },
+  ];
   return (
-    <div>
-      <a href={html_url} target="_blank" rel="noreferrer">
-        <img src={avatar_url} alt={full_name} />
-        <h3>{full_name}</h3>
+    <div className="container">
+      <a
+        href={html_url}
+        target="_blank"
+        rel="noreferrer"
+        className="card-header"
+      >
+        <h3 className="repo-name">{full_name}</h3>
+        <img src={avatar_url} alt={full_name} className="avatar" />
       </a>
-      <dl>
-        {listData.map(({value, title})=> 
-            <ListItem key={full_name+value} value={value} title={title} />    
-        )}
+      <dl className="list-container">
+        {listData.map(({ value, title, icon }) => (
+          <ListItem
+            key={full_name + value}
+            value={value}
+            title={title}
+            Icon={icon}
+          />
+        ))}
       </dl>
     </div>
   );
