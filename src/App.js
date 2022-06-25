@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import RepoCard from './components/repoCard/repoCard.component';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Github Repos Compare</h1>
       </header>
+      <main>
+        <RepoCard />
+      </main>
+      <footer>
+        All rights received &copy; 2022 Noor Al-Omari
+      </footer>
     </div>
   );
 }
