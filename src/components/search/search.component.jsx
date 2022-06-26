@@ -11,6 +11,7 @@ const Search = ({ setSearchedName, searchedRepos, addRepo }) => {
   };
 
   const handleOnSearch = (string, results) => {
+    // Update search string to get the suggestions
     debounce(string, setSearchedName, 200);
   };
 

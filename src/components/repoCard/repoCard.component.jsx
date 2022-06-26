@@ -28,6 +28,8 @@ const RepoCard = ({
   id,
   removeRepo
 }) => {
+
+  // Format details data
   const listData = [
     {
       title: "Stars",
@@ -67,8 +69,10 @@ const RepoCard = ({
       icon: FaLanguage,
     },
   ];
+
   return (
     <div className="container">
+      {/* open repo in github */}
       <a
         href={html_url}
         target="_blank"
@@ -78,6 +82,8 @@ const RepoCard = ({
         <h3 className="repo-name">{name}</h3>
         <img src={avatar_url} alt={name} className="avatar" />
       </a>
+
+      {/* Repo details */}
       <dl className="list-container">
         {listData.map(({ value, title, icon }) => (
           <ListItem
@@ -88,6 +94,8 @@ const RepoCard = ({
           />
         ))}
       </dl>
+      
+      {/* Remove the repo from the compression */}
       <Button title={"Remove Repo"} action={removeRepo} id={id} />
     </div>
   );

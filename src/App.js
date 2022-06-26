@@ -22,6 +22,7 @@ function App() {
   };
 
   useEffect(() => {
+    // To get and set the suggested repos
     if (searchedName) {
       axios
         .get(
@@ -78,13 +79,14 @@ function App() {
           {!!savedRepos?.length ? (
             savedRepos?.map(({ id, ...repo }) => (
               <RepoCard
-                key={"save" + id}
+                key={id}
                 id={id}
                 repoData={repo}
                 removeRepo={removeRepo}
               />
             ))
           ) : (
+            // To show message if no repos saved
             <div className="empty">
               <p>No Repos Saved</p>
             </div>
