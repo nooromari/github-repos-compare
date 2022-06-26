@@ -30,6 +30,7 @@ Website allow the user to search for Github's repos, see the information, add/re
         - react-icons
     - Github's REST API
     - Heroku
+    - PWA
 
 <!-- ## Change Log -->
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
