@@ -9,24 +9,7 @@ import { GITHUB_API_URL } from "./utils/constants";
 import "./App.css";
 
 function App() {
-  const [searchedRepos, setSearchedRepos] = useState([
-    {
-      id: 67282,
-      name: "Angular",
-    },
-    {
-      id: 7367,
-      name: "React",
-    },
-    {
-      id: 232,
-      name: "Vue",
-    },
-    {
-      id: 8589,
-      name: "Python",
-    },
-  ]);
+  const [searchedRepos, setSearchedRepos] = useState([]);
   const [savedRepos, setSavedRepos] = useState([]);
   const [searchedName, setSearchedName] = useState(null);
 
@@ -84,7 +67,6 @@ function App() {
         <img className="logo" src={Logo} alt="logo" />
         <h1>Github Repos Compare</h1>
       </header>
-      {/* <ErrorBoundary> */}
       <main>
         <Search
           setSearchedName={setSearchedName}
@@ -100,7 +82,6 @@ function App() {
                 id={id}
                 repoData={repo}
                 removeRepo={removeRepo}
-                // setSavedRepos={setSavedRepos}
               />
             ))
           ) : (
@@ -110,7 +91,6 @@ function App() {
           )}
         </section>
       </main>
-      {/* </ErrorBoundary> */}
       <footer className="footer">
         All rights received &copy; 2022 Noor Al-Omari
       </footer>
