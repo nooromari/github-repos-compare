@@ -1,7 +1,7 @@
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import "./search.styles.css";
 
-const Search = ({ setSearchedName }) => {
-
+const Search = ({ setSearchedName, searchedRepos, addRepo }) => {
   //for debounce function
   let inDebounce;
 
@@ -10,16 +10,22 @@ const Search = ({ setSearchedName }) => {
     inDebounce = setTimeout(() => func(arg), delay);
   };
 
+  const handleOnSearch = (string, results) => {
+    debounce(string, setSearchedName, 200);
+  };
+
+  const formatResult = ({name}) => {
+    return <span className="suggest">{name}</span>;
+  };
+
   return (
-    <div>
-      <input
-        type={"search"}
-        placeholder="search"
-        name="search"
-        className="search-input"
-        onChange={(e) => {
-          debounce(e.target.value, setSearchedName, 2000);
-        }}
+    <div className="search-input">
+      <ReactSearchAutocomplete
+        placeholder="Search for a repository"
+        items={searchedRepos}
+        onSearch={handleOnSearch}
+        formatResult={formatResult}
+        onSelect={addRepo}
       />
     </div>
   );

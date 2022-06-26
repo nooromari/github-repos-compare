@@ -1,5 +1,9 @@
-import ListItem from "../listItem/listItem.component";
 import moment from "moment";
+
+import ListItem from "../listItem/listItem.component";
+import Button from "../button/button.component";
+
+//icons
 import { AiOutlineBranches, AiOutlinePlus, AiFillStar } from "react-icons/ai";
 import { GoIssueOpened } from "react-icons/go";
 import { MdDateRange } from "react-icons/md";
@@ -10,7 +14,7 @@ import "./repoCard.styles.css";
 
 const RepoCard = ({
   repoData: {
-    full_name,
+    name,
     created_at,
     updated_at,
     language,
@@ -21,7 +25,8 @@ const RepoCard = ({
     html_url,
     license_type,
   },
-  setSavedRepos,
+  id,
+  removeRepo
 }) => {
   const listData = [
     {
@@ -70,19 +75,20 @@ const RepoCard = ({
         rel="noreferrer"
         className="card-header"
       >
-        <h3 className="repo-name">{full_name}</h3>
-        <img src={avatar_url} alt={full_name} className="avatar" />
+        <h3 className="repo-name">{name}</h3>
+        <img src={avatar_url} alt={name} className="avatar" />
       </a>
       <dl className="list-container">
         {listData.map(({ value, title, icon }) => (
           <ListItem
-            key={full_name + value}
+            key={name + value}
             value={value}
             title={title}
             Icon={icon}
           />
         ))}
       </dl>
+      <Button title={"Remove Repo"} action={removeRepo} id={id} />
     </div>
   );
 };
