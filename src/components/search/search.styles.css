@@ -1,7 +1,10 @@
 .search-input {
-    margin: 20px 0;
-    width: 50%;
-    padding: 10px;
-    border-radius: 30px;
-    background-color: rgb(180, 180, 180);
+    width: 70%;
+    margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+   .search-input {
+       width: 100%;
+   }
 }

@@ -6,7 +6,6 @@ const ListItem = ({ title, value, Icon }) => (
       <Icon className="icon" />
       <span>{title}</span>
     </dt>
-
     <dd>{value}</dd>
   </div>
 );

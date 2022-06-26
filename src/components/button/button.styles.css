@@ -1,0 +1,14 @@
+.remove {
+    padding: 10px 30px;
+    color: rgb(192, 101, 101);
+    background-color: #3b3c3db9;
+    border: solid 1px rgb(192, 101, 101);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.remove:hover {
+    color: rgb(175, 58, 58);
+    background-color: #3b3c3d85;
+    border: solid 1px  rgb(175, 58, 58);
+}

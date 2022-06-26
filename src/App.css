@@ -7,13 +7,14 @@
   text-align: center;
 }
 
+
 .App-header {
   position: relative;
   display: flex;
   justify-content: flex-start;
   gap: 10px;
   align-items: center;
-  border-bottom: solid 1px #a9aaac;
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -40,7 +41,7 @@
 }
 
 .empty {
-  height: 25vh ;
+  height: 50vh ;
   background-color: #484b52ab ;
   width: 50%;
   display: flex;
@@ -57,4 +58,16 @@
   bottom: 0px;
   padding: 10px 0;
   border-top: solid 1px #a9aaac;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 600px) {
+  .App-header {
+    font-size: calc(5px + 1.5vmin);
+  }
+
+  .section-title{
+    font-size: calc(8px + 1vmin);
+  }
+
 }
