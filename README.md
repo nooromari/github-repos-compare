@@ -23,7 +23,13 @@ Website allow the user to search for Github's repos, see the information, add/re
 ### Technologies used:
     - React
     - CSS
-    - PWA
+    - Libraries used :
+        - axios
+        - moment
+        - react-search-autocomplete
+        - react-icons
+    - Github's REST API
+    - Heroku
 
 <!-- ## Change Log -->
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
@@ -33,4 +39,6 @@ Website allow the user to search for Github's repos, see the information, add/re
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-## [Live URL]()
+## [Live URL](https://fast-basin-48974.herokuapp.com/)
+
+![screen](./image.png)
